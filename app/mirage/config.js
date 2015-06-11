@@ -5,7 +5,7 @@ export default function() {
   /*
     Default config
   */
-  // this.namespace = '';    // make this `api`, for example, if your API is namespaced
+  this.namespace = '';    // make this `api`, for example, if your API is namespaced
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
   /*
@@ -31,6 +31,8 @@ export default function() {
     this.post('/contacts');
     this.post('/contacts', 'user'); // specify the type of resource to be created
   */
+  this.post('/token');
+  this.get('/repos');
 
   /*
     PUT shorthands

@@ -7,12 +7,7 @@
 import Mirage from 'ember-cli-mirage';
 
 export default Mirage.Factory.extend({
-  name: 'Pete',
-  age: 20,
-
-  email: (i) => `person${i}@test.com`,
-
-  admin: function() {
-    return this.age > 30;
-  }
+  id(i){i},
+  accessToken(i){`${i}`},
+  expiresIn: 60 * 60 * 24 * 30 // 30 days
 });

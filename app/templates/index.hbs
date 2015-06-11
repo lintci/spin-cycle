@@ -1,0 +1,23 @@
+<div class="grid-block vertical">
+  <section class="grid-container">
+    <img class="logo-vert" src="lintci-logo-vert.svg">
+  </section>
+
+  <div class="grid-container">
+    <header>
+      <h2>Continuous Static Analysis for Teams</h2>
+    </header>
+  </div>
+
+  <div class="grid-content">
+    <section class="call-to-action">
+      {{#if session.isAuthenticated}}
+        {{#link-to 'repos' classNames="center large button"}}Get Started{{/link-to}}
+      {{else}}
+        <button {{action 'githubLogin'}} class="center large button">Get Started</button>
+      {{/if}}
+    </section>
+  </div>
+
+</div>
+

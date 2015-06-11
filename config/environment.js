@@ -16,15 +16,28 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    torii: {
+      providers: {
+        'github-oauth2': {
+          scope: 'user:email,repo'
+        }
+      }
+    },
+
+    apiVersion: '/api/v1'
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.LOG_RESOLVER = true;
+    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV.apiHost = 'http://localhost:3000'
+    ENV.torii.providers['github-oauth2'].apiKey = 'ff35d7dec8911f1337b3';
   }
 
   if (environment === 'test') {
@@ -42,6 +55,14 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:oauth2-bearer',
+    crossOriginWhitelist: [ENV.apiHost]
+  };
+
+  ENV.apiNamespace = ENV.apiHost + ENV.apiVersion
+  ENV.apiTokenEndpoint = ENV.apiNamespace + '/token'
 
   return ENV;
 };
