@@ -53,7 +53,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.apiHost = 'https://api.lintci.com/v1'
   }
 
   ENV['simple-auth'] = {
