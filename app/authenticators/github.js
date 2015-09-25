@@ -9,6 +9,7 @@ export default Oauth2.extend({
   authenticate() {
     return new Ember.RSVP.Promise((resolve, reject) => {
       this.torii.open(this.provider).then((data) => {
+        data.provider = 'github'
         data.code = data.code || data.authorizationCode;
 
         this.makeRequest(this.apiTokenEndpoint, data).then((response) => {

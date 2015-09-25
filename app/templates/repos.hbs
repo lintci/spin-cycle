@@ -1,9 +1,14 @@
-<ul>
-  {{#each model as |repo|}}
-    <li>
-      {{repo.name}}
-    </li>
-  {{/each}}
-</ul>
+<div class="grid-block small-up-1">
+{{#each model as |repo|}}
+  <div class="small-12 grid-content">
+    <div class="card">
+      <div class="card-divider">
+        <a href="{{repo.owner.url}}">{{repo.owner.name}}</a>/<a href="{{repo.url}}">{{repo.name}}</a>
+        {{lci-activate-button repo=repo updateActivation="updateActivation"}}
+      </div>
+    </div>
+  </div>
+{{/each}}
+</div>
 
 {{outlet}}

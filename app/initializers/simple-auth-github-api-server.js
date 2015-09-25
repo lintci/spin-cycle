@@ -1,7 +1,7 @@
-import GithubAuthenticator from '../authenticators/github'
-import ENV from 'spin-cycle/config/environment'
+import GithubAuthenticator from '../authenticators/github';
+import ENV from 'spin-cycle/config/environment';
 
-export function initialize(container, application) {
+export function initialize(container) {
   var torii = container.lookup('torii:main');
   var authenticator = GithubAuthenticator.create({torii: torii, apiTokenEndpoint: ENV.apiTokenEndpoint});
 

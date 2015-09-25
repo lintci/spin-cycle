@@ -21,12 +21,12 @@ module.exports = function(environment) {
     torii: {
       providers: {
         'github-oauth2': {
-          scope: 'user,repo'
+          scope: 'user:email,repo'
         }
       }
     },
 
-    apiVersion: '/api/v1'
+    apiVersion: 'api/v1'
   };
 
   if (environment === 'development') {
@@ -61,8 +61,8 @@ module.exports = function(environment) {
     crossOriginWhitelist: [ENV.apiHost]
   };
 
-  ENV.apiNamespace = ENV.apiHost + ENV.apiVersion
-  ENV.apiTokenEndpoint = ENV.apiNamespace + '/token'
+  ENV.apiNamespace = ENV.apiHost + '/' + ENV.apiVersion
+  ENV.apiTokenEndpoint = ENV.apiNamespace + '/auth/token'
 
   return ENV;
 };

@@ -1,0 +1,6 @@
+{{#if isInactive}}
+  <a {{action 'updateStatus' 'active'}} class="button">Activate</a>
+{{else}}
+  <a {{action 'updateStatus' 'inactive'}} class="button">Deactivate</a>
+{{/if}}
+

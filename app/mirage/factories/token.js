@@ -7,7 +7,7 @@
 import Mirage from 'ember-cli-mirage';
 
 export default Mirage.Factory.extend({
-  id(i){i},
-  accessToken(i){`${i}`},
+  id(i){return i;},
+  accessToken(i){return `${i}`;},
   expiresIn: 60 * 60 * 24 * 30 // 30 days
 });
