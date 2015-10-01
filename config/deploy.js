@@ -13,5 +13,6 @@ module.exports = {
       "secretAccessKey": process.env['SECRET_ACCESS_KEY'],
       "bucket": "spincycle.lintci.com"
     }
+
   }
 }
