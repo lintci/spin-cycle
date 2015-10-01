@@ -10,6 +10,10 @@ module.exports = function(defaults) {
       includePaths: [
         'node_modules/foundation-apps/scss'
       ]
+    },
+    sourcemaps: {
+      enabled: true,
+      extensions: ['js']
     }
   });
 
