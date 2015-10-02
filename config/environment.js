@@ -59,7 +59,10 @@ module.exports = function(environment) {
 
   ENV['simple-auth'] = {
     authorizer: 'simple-auth-authorizer:oauth2-bearer',
-    crossOriginWhitelist: [ENV.apiHost]
+    crossOriginWhitelist: [ENV.apiHost],
+    authenticationRoute: 'index',
+    routeAfterAuthentication: 'repos',
+    routeIfAlreadyAuthenticated: 'repos'
   };
 
   ENV.apiNamespace = ENV.apiHost + '/' + ENV.apiVersion
