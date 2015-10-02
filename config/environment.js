@@ -53,7 +53,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.apiHost = 'https://api.lintci.com/v1'
+    ENV.apiHost = 'https://api.lintci.com'
     ENV.torii.providers['github-oauth2'].apiKey = '7e78c3caa94895775b3a';
   }
 
