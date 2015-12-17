@@ -19,9 +19,11 @@ module.exports = function(environment) {
     },
 
     torii: {
+      sessionServiceName: 'session',
       providers: {
         'github-oauth2': {
-          scope: 'user:email,repo'
+          scope: 'user:email,repo',
+          redirectUri: '/repos'
         }
       }
     },
@@ -36,8 +38,8 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV.apiHost = 'http://localhost:3000'
-    ENV.torii.providers['github-oauth2'].apiKey = 'ff35d7dec8911f1337b3';
+    ENV.apiHost = 'https://api.lintci.com'
+    ENV.torii.providers['github-oauth2'].apiKey = '7e78c3caa94895775b3a';//'ff35d7dec8911f1337b3';
   }
 
   if (environment === 'test') {
@@ -56,14 +58,6 @@ module.exports = function(environment) {
     ENV.apiHost = 'https://api.lintci.com'
     ENV.torii.providers['github-oauth2'].apiKey = '7e78c3caa94895775b3a';
   }
-
-  ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:oauth2-bearer',
-    crossOriginWhitelist: [ENV.apiHost],
-    authenticationRoute: 'index',
-    routeAfterAuthentication: 'repos',
-    routeIfAlreadyAuthenticated: 'repos'
-  };
 
   ENV.apiNamespace = ENV.apiHost + '/' + ENV.apiVersion
   ENV.apiTokenEndpoint = ENV.apiNamespace + '/auth/token'

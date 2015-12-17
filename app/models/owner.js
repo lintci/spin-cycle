@@ -8,6 +8,6 @@ export default DS.Model.extend({
   provider: DS.attr(),
 
   url: Ember.computed('provider', 'name', function(){
-    return `https://github.com/${this.get('name')}`
+    return `https://github.com/${this.get('name')}`;
   })
 });
